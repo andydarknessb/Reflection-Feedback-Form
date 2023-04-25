@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { submitFeedback } from  "../../redux/slices/feedbackSlice";
 import axios from "axios";
@@ -8,15 +8,14 @@ const Review = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const feedback = useSelector((state) => state.feedback);
-}
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+
+    const handleSubmit = async () => {
+        const success = await dispatch(submitFeedback(feedback));
         if (success) {
-            alert("Feedback submitted successfully!");
-            history.push("/");
+            history.push('/submission-success');
         } else {
-            alert("Failed to submit feedback.");
+            alert("Failed to submit feedback. Please try again.");
         }
     };
 
@@ -24,16 +23,13 @@ const Review = () => {
     return (
         <div>
           <h2>Review Your Feedback</h2>
-          <ul>
-            <li>Feeling: {feedback.feeling}</li>
-            <li>Understanding: {feedback.understanding}</li>
-            <li>Support: {feedback.support}</li>
-            <li>Comments: {feedback.comments}</li>
-          </ul>
+          <p>Feeling: {feedback.feeling}</p>
+          <p>Understanding: {feedback.understanding}</p>
+          <p>Support: {feedback.support}</p>
+          <p>Comments: {feedback.comments}</p>
           <button onClick={handleSubmit}>Submit</button>
         </div>
       );
+};
     
-
-
 export default Review;

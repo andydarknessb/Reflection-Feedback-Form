@@ -1,40 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setFeeling } from "../../redux/action";
+import { setFeeling } from "../../redux/slices/feedbackSlice";
 import { useHistory } from "react-router-dom";
 import styles from "./FeelingForm.module.css";
 
-function FeelingForm() {
-    const [feeling, setFeelingState] = useState("");
+    const FeelingForm = () => {
+    const [feeling, setFeelingValue] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
-
+  
     const handleSubmit = (event) => {
-        event.preventDefault();
-        if (feeling >= 1 && feeling <=5) {
-        dispatch(setFeeling(feeling));
-        history.push("/understanding");
-        } else {
-            alert("Please provide a valid score between 1 and 5.");
-        }
+      event.preventDefault();
+      dispatch(setFeeling(feeling));
+      history.push('/understanding');
     };
-}
-
-return (
-    <div className={styles.container}>
-        <h2>How are you feeling today?</h2>
-        <form onSubmit={handleSubmit}>
-            <input 
-             type="number"
-             min="1"
-             max="5"
-             value={feeling}
-             onChange={(e) => setFeelingState(e.target.value)}
-             required
-            />
-            <button type="submit">Next</button>
-        </form>
-    </div>
-);
-
-export default FeelingForm;
+  
+    return (
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="feeling">How are you feeling today?</label>
+        <input
+          type="number"
+          name="feeling"
+          value={feeling}
+          onChange={(event) => setFeelingValue(event.target.value)}
+        />
+        <button type="submit">Next</button>
+      </form>
+    );
+  };
+  
+  export default FeelingForm;

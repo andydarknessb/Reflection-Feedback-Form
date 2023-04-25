@@ -27,7 +27,7 @@ const UnderstandingForm = () => {
             type="number"
             id="understanding"
             value={understanding}
-            onChange={(event) => setUnderstandingValue(event.target,value)}
+            onChange={(event) => setUnderstandingValue(event.target.value)}
             />
             <button type="submit">Next</button>
             </form>

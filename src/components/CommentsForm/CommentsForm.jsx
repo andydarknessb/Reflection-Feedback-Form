@@ -12,6 +12,7 @@ const CommentsForm = () => {
         event.preventDefault();
         dispatchEvent(setComments(comments));
         history.push("/review");
+    };
 
         return (
             <div>
@@ -28,6 +29,6 @@ const CommentsForm = () => {
             </div>
         )
     };
-};
+
 
 export default CommentsForm;

@@ -1,12 +1,13 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Route, Switch} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
-import feelingForm from "../FeelingForm/FeelingForm";
+import FeelingForm from "../FeelingForm/FeelingForm";
 import UnderstandingForm from "../UnderstandingForm/UnderstandingForm";
 import SupportForm from "../SupportForm/SupportForm";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import Review from "../Review/Review";
+import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
 import axios from 'axios';
 import './App.css';
 
@@ -24,7 +25,8 @@ function App() {
         <Route path="/understanding" component={UnderstandingForm}/>
         <Route path="/support" component={SupportForm}/>
         <Route path="/comments" component={CommentsForm} />
-        <Route path= "/review " component={Review} />
+        <Route path="/review " component={Review} />
+        <Route path="/submission-success" component={SubmissionSuccess}/>
       </Switch>
     </div>
     </Provider>

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use("/api/feedback", feedbackRouter);
+app.use("api/feedback", feedbackRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
