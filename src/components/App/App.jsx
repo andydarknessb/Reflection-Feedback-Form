@@ -10,12 +10,18 @@ import './App.css';
 function App() {
 
   return (
+    <Provider store={store}>
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
+      <Switch>
+        <Route path="/" exact component={FeelingForm} />
+        <Route path= "/review " component={Review} />
+      </Switch>
     </div>
+    </Provider>
   );
 }
 
