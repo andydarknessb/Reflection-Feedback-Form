@@ -21,6 +21,9 @@ function App() {
       </header>
       <Switch>
         <Route path="/" exact component={FeelingForm} />
+        <Route path="/understanding" component={UnderstandingForm}/>
+        <Route path="/support" component={SupportForm}/>
+        <Route path="/comments" component={CommentsForm} />
         <Route path= "/review " component={Review} />
       </Switch>
     </div>
