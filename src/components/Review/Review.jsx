@@ -17,4 +17,14 @@ function Review() {
     };
 }
 
-return 
+return (
+    <div className={StyleSheet.container}>
+        <h2>Review Your Feedback</h2>
+        <div className={StyleSheet.feedback}>
+            <p>Feeling: {feedback.feeling}</p>
+        </div>
+        <button onClick={handleSubmit}>Submit Feedback</button>
+    </div>
+);
+
+export default Review;
