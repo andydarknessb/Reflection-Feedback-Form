@@ -1,0 +1,20 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+
+function Review() {
+    const feedback = useSelector((state) => state);
+    const history = useHistory();
+
+    const handleSubmit = async () => {
+        try {
+            await axios.post("/api/feedback", feedback);
+            history.push("/success");
+        } catch (error) {
+            console.error("Error submitting feedback:", error);
+        }
+    };
+}
+
+return 
