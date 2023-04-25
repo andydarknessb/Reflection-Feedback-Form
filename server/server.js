@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+const feedbackRouter = require("./routes/feedback");
+app.use("/api/feedback", feedbackRouter);
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); 
