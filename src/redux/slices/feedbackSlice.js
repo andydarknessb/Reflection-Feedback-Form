@@ -28,6 +28,15 @@ const feedbackSlice = createSlice({
     },
 });
 
+export const {
+    setFeeling,
+    setUnderstanding,
+    setSupport,
+    setComments,
+    resetFeedback,
+} = feedbackSlice.actions;
+
+
 export const submitFeedback = (feedback) => async (dispatch) => {
     try {
         const response = await axios.post("/api/feedback", feedback);
