@@ -11,8 +11,12 @@ function FeelingForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (feeling >= 1 && feeling <=5) {
         dispatch(setFeeling(feeling));
         history.push("/nextForm");
+        } else {
+            alert("Please provide a valid scor between 1 and 5.");
+        }
     };
 }
 
