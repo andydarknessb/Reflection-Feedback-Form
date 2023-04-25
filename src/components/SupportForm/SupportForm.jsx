@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSupport } from "../../redux/slices/feedbackSlice";
-import { useHistor } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SupportForm = () => {
     const [support, setSupportValue] = useState("");
@@ -21,7 +21,18 @@ const SupportForm = () => {
     return (
         <div>
             <h2>How well are you being supported?</h2>
-            <form onSubmit={handleSubmit}></form>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="support">Support:</label>
+                <input 
+                type="number"
+                id="support"
+                value={support}
+                onChange={(event) => setSupportValue(event.target.value)}
+                />
+                <button type="submit">Next</button>
+            </form>
         </div>
-    )
-}
+    );
+};
+
+export default SupportForm;
