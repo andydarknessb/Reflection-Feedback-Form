@@ -13,9 +13,9 @@ function FeelingForm() {
         event.preventDefault();
         if (feeling >= 1 && feeling <=5) {
         dispatch(setFeeling(feeling));
-        history.push("/nextForm");
+        history.push("/understanding");
         } else {
-            alert("Please provide a valid scor between 1 and 5.");
+            alert("Please provide a valid score between 1 and 5.");
         }
     };
 }
@@ -32,7 +32,7 @@ return (
              onChange={(e) => setFeelingState(e.target.value)}
              required
             />
-            <button type="sumbit">Next</button>
+            <button type="submit">Next</button>
         </form>
     </div>
 );
