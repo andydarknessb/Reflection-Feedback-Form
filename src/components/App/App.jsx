@@ -14,7 +14,7 @@ import AdminPage from '../AdminPage/AdminPage';
 import './App.css';
 
 function App() {
-
+  // Wrap the app with the Redux store provider and the React Router component
   return (
     <Provider store={store}>
       <Router>

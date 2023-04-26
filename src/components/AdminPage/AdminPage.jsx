@@ -25,14 +25,12 @@ const AdminPage = () => {
   }, []);
 
   const fetchFeedback = async () => {
-    // Replace with your API URL
     const response = await fetch("http://localhost:3000");
     const data = await response.json();
     setFeedback(data);
   };
 
   const handleDelete = async (id) => {
-    // Replace with your API URL
     await fetch(`http://localhost:3000/${id}`, {
       method: "DELETE",
     });

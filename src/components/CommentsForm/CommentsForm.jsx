@@ -13,25 +13,25 @@ import {
   
 
 const CommentsForm = () => {
-    const [comments, setCommentsValue] = useState("");
+    const [comments, setCommentsValue] = useState(""); // Define state variables for comments and useDispatch and useHistory hooks
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event) => { //Handle form submission
         event.preventDefault();
-        if (comments.trim() === "") {
+        if (comments.trim() === "") { //Validate input before dispatching
             alert("Please enter a comment.");
           } else {
-            dispatch(setComments(comments));
+            dispatch(setComments(comments)); // Redirect to review page after dispatching
             history.push("/review");
           }
         };
 
-        const handleBack = () => {
+        const handleBack = () => { // Handle clicking "back" button
             history.goBack();
         }
 
-        return (
+        return ( //comments form
             <Card>
               <CardContent>
                 <Typography variant="h5">Any comments you want to leave?</Typography>

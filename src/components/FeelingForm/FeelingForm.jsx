@@ -11,20 +11,20 @@ import {
     Box,
   } from "@mui/material";
 
-    const FeelingForm = () => {
-    const [feeling, setFeelingValue] = useState('');
-    const dispatch = useDispatch();
-    const history = useHistory();
+    const FeelingForm = () => { // Component for the feeling form
+    const [feeling, setFeelingValue] = useState(''); // Local state for the feeling value
+    const dispatch = useDispatch(); // useDispatch hook to dispatch the feeling value to Redux store
+    const history = useHistory(); // useHistory hook to navigate between routes
   
     const handleSubmit = (event) => {
-        event.preventDefault();
-        if (feeling === "") {
-            alert("Please enter a value.");
-          } else if (feeling >= 1 && feeling <= 5) {
-            dispatch(setFeeling(feeling));
-          history.push("/understanding");
+        event.preventDefault(); // Prevents the default form submission behavior
+        if (feeling === "") { // If no value is entered
+            alert("Please enter a value."); // Show an alert to enter a value
+          } else if (feeling >= 1 && feeling <= 5) { // If value is between 1 and 5 (inclusive)
+            dispatch(setFeeling(feeling)); // Dispatch the feeling value to the Redux store
+          history.push("/understanding"); // Navigate to the next page
         } else {
-          alert("Please enter a value between 1 and 5");
+          alert("Please enter a value between 1 and 5"); // If value is not between 1 and 5, show an alert
         }
       };
   

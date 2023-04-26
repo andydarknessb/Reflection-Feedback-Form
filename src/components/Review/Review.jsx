@@ -10,13 +10,13 @@ const Review = () => {
     const feedback = useSelector((state) => state.feedback);
 
 
-    const handleSubmit = async () => {
-        const success = await dispatch(submitFeedback(feedback));
+    const handleSubmit = async () => { // Handle the form submission
+        const success = await dispatch(submitFeedback(feedback)); // Dispatch the submitFeedback action to submit the feedback to the server
         if (success) {
-            dispatch(resetFeedback());
+            dispatch(resetFeedback()); // If submission is successful, reset the feedback and redirect to the success page
             history.push("/submission-success");
         } else {
-            alert("Failed to submit feedback. Please try again.");
+            alert("Failed to submit feedback. Please try again."); // If submission fails, show an error message
         }
     };
 
