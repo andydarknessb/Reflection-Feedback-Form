@@ -8,7 +8,8 @@ import SupportForm from "../SupportForm/SupportForm";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import Review from "../Review/Review";
 import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
-import Admin from './components/Admin';
+import AdminPage from '../../src/AdminPage';
+
 
 import './App.css';
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/comments" component={CommentsForm} />
         <Route path="/review" component={Review} />
         <Route path="/submission-success" component={SubmissionSuccess}/>
-        <Route path="/admin" component={Admin}/>
+        <Route path="/admin" component={AdminPage}/>
       </Switch>
     </div>
     </Router>
