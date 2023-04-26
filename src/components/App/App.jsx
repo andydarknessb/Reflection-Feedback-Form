@@ -8,7 +8,7 @@ import SupportForm from "../SupportForm/SupportForm";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import Review from "../Review/Review";
 import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
-import AdminPage from '../../src/AdminPage';
+import AdminPage from '../AdminPage/AdminPage';
 
 
 import './App.css';
