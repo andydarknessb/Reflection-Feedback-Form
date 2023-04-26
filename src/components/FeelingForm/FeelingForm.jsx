@@ -11,8 +11,10 @@ import styles from "./FeelingForm.module.css";
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (feeling >= 1 && feeling <= 5) {
-          dispatch(setFeeling(feeling));
+        if (feeling === "") {
+            alert("Please enter a value.");
+          } else if (feeling >= 1 && feeling <= 5) {
+            dispatch(setFeeling(feeling));
           history.push("/understanding");
         } else {
           alert("Please enter a value between 1 and 5");
@@ -30,8 +32,7 @@ import styles from "./FeelingForm.module.css";
           onChange={(event) => setFeelingValue(event.target.value)}
           className={styles.input}
         />
-        <button type="submit" className={styles.button}>
-            Next</button>
+        <button type="submit" className={styles.button}>Next</button>
       </form>
     );
   };

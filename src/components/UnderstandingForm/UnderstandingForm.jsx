@@ -10,14 +10,18 @@ const UnderstandingForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(understanding >= 1 && understanding <= 5) {
+        if (understanding === "") {
+            alert("Please enter a value.");
+          } else if (understanding >= 1 && understanding <= 5) {
             dispatch(setUnderstanding(understanding));
             history.push("/support");
-    } else {
-        alert("Please provide a valid score between 1 and 5. ");
-     }
-    };
-    
+          } else {
+            alert("Please provide a valid score between 1 and 5.");
+          }
+        };
+    const handleBack = () => {
+        history.goBack();
+    }
     return (
         <div>
         <h2>How well are you understanding the content</h2>
@@ -30,6 +34,7 @@ const UnderstandingForm = () => {
             onChange={(event) => setUnderstandingValue(event.target.value)}
             />
             <button type="submit">Next</button>
+            <button type="button"onClick={handleBack}>Back</button>
             </form>
             </div>
           );

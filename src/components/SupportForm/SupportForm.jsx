@@ -10,13 +10,19 @@ const SupportForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (support >= 1 && support <= 5) {
+        if (support === "") {
+            alert("Please enter a value.");
+          } else if (support >= 1 && support <= 5) {
             dispatch(setSupport(support));
             history.push("/comments");
-        } else {
+          } else {
             alert("Please provide a valid score between 1 and 5.");
-        }
-    };
+          }
+        };
+
+    const handleBack = () => {
+        history.goBack();
+      };
 
     return (
         <div>
@@ -30,6 +36,7 @@ const SupportForm = () => {
                 onChange={(event) => setSupportValue(event.target.value)}
                 />
                 <button type="submit">Next</button>
+                <button type="button" onClick={handleBack}>Back</button>
             </form>
         </div>
     );

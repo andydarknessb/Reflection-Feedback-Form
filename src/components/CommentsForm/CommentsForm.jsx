@@ -10,9 +10,17 @@ const CommentsForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(setComments(comments));
-        history.push("/review");
-    };
+        if (comments.trim() === "") {
+            alert("Please enter a comment.");
+          } else {
+            dispatch(setComments(comments));
+            history.push("/review");
+          }
+        };
+
+        const handleBack = () => {
+            history.goBack();
+        }
 
         return (
             <div>
@@ -25,6 +33,7 @@ const CommentsForm = () => {
                     onChange={(event) => setCommentsValue(event.target.value)}
                     />
                     <button type="submit">Next</button>
+                    <button type="button"onClick={handleBack}>Back</button>
                 </form>
             </div>
         )
