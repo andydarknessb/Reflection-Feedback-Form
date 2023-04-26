@@ -24,11 +24,11 @@ How are you feeling today?
 How well are you understanding the content?
 How well are you being supported?
 Any comments you want to leave?
-Each step of the form should be on its own route. The user should be able to navigate between steps using a next button.
+The user can navigate between steps using a next/back button.
 
-Input validation is included in each step of the form. Users must provide a score to advance to the next step, except for the comments step, which is optional.
+Input validation is included in each step of the form. Users must provide a score to advance to the next step.
 
-After the user completes all steps of the form, they will be taken to the review step. The review step displays the feedback collected and allows the user to submit the feedback. Once the user submits the feedback, it is saved in the database, and the user sees a submission success page.
+After the user completes all steps of the form, they will be taken to the review step. The review step displays the feedback collected and allows the user to submit the feedback. Once the user submits the feedback, it is saved in the database, and the user sees a submission success prompt.
 
 Built With
 The app is built using React, Redux, Material UI, and Node.js.
