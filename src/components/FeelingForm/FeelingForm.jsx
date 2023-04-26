@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setFeeling } from "../../redux/slices/feedbackSlice";
 import { useHistory } from "react-router-dom";
-import styles from "./FeelingForm.module.css";
+import {
+    TextField,
+    Button,
+    Card,
+    CardContent,
+    Typography,
+    Box,
+  } from "@mui/material";
 
     const FeelingForm = () => {
     const [feeling, setFeelingValue] = useState('');
@@ -21,20 +28,36 @@ import styles from "./FeelingForm.module.css";
         }
       };
   
-    return (
-      <form onSubmit={handleSubmit} className={styles.form} >
-        <label htmlFor="feeling" className={styles.label} 
-        >How are you feeling today?</label>
-        <input
-          type="number"
-          name="feeling"
-          value={feeling}
-          onChange={(event) => setFeelingValue(event.target.value)}
-          className={styles.input}
-        />
-        <button type="submit" className={styles.button}>Next</button>
-      </form>
-    );
-  };
-  
+      return (
+        <Card>
+          <CardContent>
+            <Typography variant="h5">How are you feeling today?</Typography>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                type="number"
+                name="feeling"
+                value={feeling}
+                onChange={(event) => setFeelingValue(event.target.value)}
+                label="Feeling"
+                variant="outlined"
+                margin="normal"
+                style={{ width: "8%" }}
+                />
+                <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    sx={{ mr: 1 }}
+                  >
+                    Next
+                  </Button>
+                </Box>
+              </form>
+            </CardContent>
+          </Card>
+        );
+      };
+    
+
   export default FeelingForm;

@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUnderstanding } from "../../redux/slices/feedbackSlice";
 import { useHistory } from "react-router-dom";
+import {
+    TextField,
+    Button,
+    Card,
+    CardContent,
+    Typography,
+    Box,
+  } from "@mui/material";
 
 const UnderstandingForm = () => {
     const [understanding, setUnderstandingValue] = useState("");
@@ -23,21 +31,39 @@ const UnderstandingForm = () => {
         history.goBack();
     }
     return (
-        <div>
-        <h2>How well are you understanding the content</h2>
-        <form onSubmit={handleSubmit}>
-        <label htmlFor="understanding">Understanding:</label>
-        <input 
-            type="number"
-            id="understanding"
-            value={understanding}
-            onChange={(event) => setUnderstandingValue(event.target.value)}
-            />
-            <button type="submit">Next</button>
-            <button type="button"onClick={handleBack}>Back</button>
-            </form>
-            </div>
-          );
-    };
+        <Card>
+          <CardContent>
+            <Typography variant="h5">
+              How well are you understanding the content?
+            </Typography>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                type="number"
+                name="understanding"
+                value={understanding}
+                onChange={(event) => setUnderstandingValue(event.target.value)}
+                label="Understanding"
+                variant="outlined"
+                margin="normal"
+                style={{ width: "12%" }}
+          />
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ mr: 1 }}
+            >
+              Next
+            </Button>
+            <Button onClick={handleBack} variant="outlined" color="secondary">
+              Back
+            </Button>
+          </Box>
+        </form>
+      </CardContent>
+    </Card>
+  );
+};
 
     export default UnderstandingForm;

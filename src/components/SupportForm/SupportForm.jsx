@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSupport } from "../../redux/slices/feedbackSlice";
 import { useHistory } from "react-router-dom";
+import {
+    TextField,
+    Button,
+    Card,
+    CardContent,
+    Typography,
+    Box,
+  } from "@mui/material";
 
 const SupportForm = () => {
     const [support, setSupportValue] = useState("");
@@ -24,22 +32,38 @@ const SupportForm = () => {
         history.goBack();
       };
 
-    return (
-        <div>
-            <h2>How well are you being supported?</h2>
+      return (
+        <Card>
+          <CardContent>
+            <Typography variant="h5">How well are you being supported?</Typography>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="support">Support:</label>
-                <input 
+              <TextField
                 type="number"
-                id="support"
+                name="support"
                 value={support}
                 onChange={(event) => setSupportValue(event.target.value)}
-                />
-                <button type="submit">Next</button>
-                <button type="button" onClick={handleBack}>Back</button>
-            </form>
-        </div>
-    );
+                label="Support"
+                variant="outlined"
+                margin="normal"
+                style={{ width: "8%" }}
+          />
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ mr: 1 }}
+            >
+              Next
+            </Button>
+            <Button onClick={handleBack} variant="outlined" color="secondary">
+              Back
+            </Button>
+          </Box>
+        </form>
+      </CardContent>
+    </Card>
+  );
 };
-
+              
 export default SupportForm;
