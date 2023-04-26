@@ -1,7 +1,14 @@
--- Database should be prime_feedback
+const { Pool } = require('pg');
 
--- Switch to "prime_feedback" before making:
--- Table to store the feedback
+const pool = new Pool({
+  user: 'coryanderson',
+  host: 'localhost',
+  database: 'prime_feedback',
+  password: '' ,
+  port: 5432, 
+});
+
+
 CREATE TABLE "feedback" (
   "id" serial primary key,
   "feeling" INT not null,
@@ -12,6 +19,7 @@ CREATE TABLE "feedback" (
   "date" date not null default CURRENT_DATE
 ); 
 
--- Sample feedback item
-INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-VALUES (4, 4, 5, 'Doing Great!');
+const queryText = 'INSERT INTO feedback (feeling, understanding, support, comments) VALUES ($1, $2, $3, $4)';
+await client.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments]);
+
+

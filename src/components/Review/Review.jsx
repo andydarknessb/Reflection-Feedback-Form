@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { submitFeedback } from  "../../redux/slices/feedbackSlice";
-import axios from "axios";
+import { submitFeedback, resetFeedback } from  "../../redux/slices/feedbackSlice";
+
 
 const Review = () => {
     const dispatch = useDispatch();
@@ -13,7 +13,8 @@ const Review = () => {
     const handleSubmit = async () => {
         const success = await dispatch(submitFeedback(feedback));
         if (success) {
-            history.push('/submission-success');
+            dispatch(resetFeedback());
+            history.push("/submission-success");
         } else {
             alert("Failed to submit feedback. Please try again.");
         }

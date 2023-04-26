@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import FeelingForm from "../FeelingForm/FeelingForm";
@@ -8,13 +8,13 @@ import SupportForm from "../SupportForm/SupportForm";
 import CommentsForm from "../CommentsForm/CommentsForm";
 import Review from "../Review/Review";
 import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
-import axios from 'axios';
 import './App.css';
 
 function App() {
 
   return (
     <Provider store={store}>
+      <Router>
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>
@@ -25,10 +25,11 @@ function App() {
         <Route path="/understanding" component={UnderstandingForm}/>
         <Route path="/support" component={SupportForm}/>
         <Route path="/comments" component={CommentsForm} />
-        <Route path="/review " component={Review} />
+        <Route path="/review" component={Review} />
         <Route path="/submission-success" component={SubmissionSuccess}/>
       </Switch>
     </div>
+    </Router>
     </Provider>
   );
 }

@@ -10,7 +10,7 @@ const CommentsForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatchEvent(setComments(comments));
+        dispatch(setComments(comments));
         history.push("/review");
     };
 

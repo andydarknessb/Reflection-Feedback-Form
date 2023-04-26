@@ -24,7 +24,12 @@ const feedbackSlice = createSlice({
         setComments: (state, action) => {
             state.comments = action.payload;
         },
-        resetFeedback: () => initialState,
+        resetFeedback: (state) => {
+            state.feeling = initialState.feeling;
+            state.understanding = initialState.understanding;
+            state.support = initialState.support;
+            state.comments = initialState.comments;
+        },
     },
 });
 

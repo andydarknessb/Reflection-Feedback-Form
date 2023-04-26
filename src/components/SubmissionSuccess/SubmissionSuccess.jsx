@@ -9,12 +9,13 @@ const SubmissionSuccess = () => {
 
     const handleNewSurvey = () => {
         dispatch(resetFeedback());
-        history.push('/feeling');
+        history.push('/');
     };
 
     return (
         <div>
-            <h1>Thank you for your feedback!</h1>
+            <h2>Submission Successful!</h2>
+            <p>Your feedback has been submitted.</p>
             <button onClick={handleNewSurvey}>Take a New Survey</button>
         </div>
     );
